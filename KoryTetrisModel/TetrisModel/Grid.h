@@ -3,32 +3,32 @@
 #include <vector>
 #include <memory>
 
-#include "Piece.h"
+#include "PieceData.h"
 
 template<int W, int H>
 class Grid
 {
 public:
-	Grid(std::array<const Piece::Type, W*H>& contents)
+	Grid(std::array<const PieceData::Type, W*H>& contents)
 	{
 		m_contents = contents;
 	}
 
-	inline Piece::Type get(int row, int col)
+	inline PieceData::Type get(int row, int col)
 	{
-		if (row < 0 || row > H ||
-			col < 0 || col > W)
+		if (row < 0 || row >= H ||
+			col < 0 || col >= W)
 		{
-			return Piece::Type::Void;
+			return PieceData::Type::Void;
 		}
 
 		return m_contents[W*row + col];
 	}
 	
-	inline void set(int row, int col, Piece::Type type)
+	inline void set(int row, int col, PieceData::Type type)
 	{
-		if (row < 0 || row > H ||
-			col < 0 || col > W)
+		if (row < 0 || row >= H ||
+			col < 0 || col >= W)
 		{
 			return;
 		}
@@ -37,6 +37,6 @@ public:
 	}
 
 protected:
-	std::array<Piece::Type, W*H> m_contents;
+	std::array<PieceData::Type, W*H> m_contents;
 };
 

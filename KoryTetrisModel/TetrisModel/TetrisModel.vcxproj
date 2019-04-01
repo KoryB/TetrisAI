@@ -154,6 +154,7 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="Grid.h" />
     <ClInclude Include="GridFrames.h" />
+    <ClInclude Include="PieceData.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Piece.h" />

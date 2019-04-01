@@ -2,26 +2,19 @@
 
 #include <array>
 
-class Grid;
+#include "GridFrames.h"
+#include "PieceData.h"
 
 class Piece
 {
 public:
-	enum class Type : char
-	{
-		Void = 0,
-		O    = 1,
-		I    = 2,
-		T    = 3,
-		S    = 4,
-		Z    = 5,
-		J    = 6,
-		L    = 6
-	};
+	static const std::array<GridFrames<4, 4>, 7> s_piece_frames;
 
-	Piece();
+public:
+	Piece(PieceData::Type type, int row, int col);
 
 private:
-	 std::array<Grid, 4> m_frames;
+	 PieceData::Type m_type;
+	 int row, column;
 };
 
